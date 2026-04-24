@@ -128,10 +128,19 @@ const invoiceLines = lineItems.map(item => ({
   qty: String(item.quantity ?? 0)
 }));
 
+const disclaimer = [
+  "Disclaimer:",
+  "*Seller has the ownership of all unpaid merchandise.",
+  "*All returns must be pre authorized & are on buyers' expense.",
+  "*Buyers are responsible for their state taxes and issues.",
+  "*If a check is returned for any reason, buyer will pay an additional charge of $50.00."
+].join("\n");
+
 const payload = JSON.stringify({
   invoice: {
-    customerid: "151069",
+    customerid: "1921089",
     create_date: new Date().toISOString().split('T')[0],
+    terms: disclaimer,
     lines: invoiceLines
   }
 });
